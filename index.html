@@ -2,20 +2,22 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="bikegifscss.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="giftastic.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	 <script type="text/javascript" src="giftastic.js"></script>
+	  
+
   <title>HomeworkSix</title>
 	
 </head>
 	<body>
-		<h1>Homework Six</h1>
-			<!--<form>
-		    <input type="text" data-subject="">
-		    <input type="submit" value="save">
-		  </form> -->
+		<h1>Giftastic</h1>
 		<form>
 		 	<div class="form-group">
             	<label for="comment-input">Pick ur Gif</label>
-                <textarea class="form-control" id="comment-input" rows="5"></textarea>
+                <textarea class="form-control" id="comment-input" rows="1"></textarea>
         	</div>
             <button id="newButton" class="btn btn-default" id="add-user" type="submit">Submit</button>
         </form>
@@ -24,7 +26,7 @@
 		<div id="bike-gifs"></div>
 		<div id="pageButtons">
 			<button class="setButtons" data-subject="bicycle">bike</button>
-			<button class="setButtons" data-subject="dog">road bike</button>
+			<button class="setButtons" data-subject="road bike">road bike</button>
 			<button class="setButtons" data-subject="mountain bike">mountain bike</button>
 		</div>
 		<div id="gifs-appear-here"></div>
@@ -37,16 +39,14 @@
 		      // prevent form from trying to submit/refresh the page
 		    event.preventDefault();
             var comment = $("#comment-input").val().trim();
-            console.log(comment);
+            //console.log(comment);
             var comment1 = $("<button>").text(comment);
                 comment1.addClass("setButtons", comment);
                 comment1.attr("data-subject",comment);
             $("#pageButtons").append(comment1);
-            //var list =
-            //$(".setButtons").
-		})
-		
-		
+		});
+
+
 		$(document).on("click", ".setButtons", function() {
 		      // Grabbing and storing the data-subject property value from the button
 		    var subject = $(this).attr("data-subject");
@@ -60,8 +60,8 @@
 		    })
 		        // After data comes back from the request
 		   .done(function(response) {
-          	console.log(queryURL);
-          	console.log(response);
+          	//console.log(queryURL);
+          	//console.log(response);
           
           	// storing the data from the AJAX request in the results variable
           	var results = response.data;
@@ -83,6 +83,14 @@
           }
         });
 		});
+// find the correct array in object.data [array]
+// in the correct object.data find the id ""
+// store the id ""
+// put the object.data.arrayNumber."id" in this url: https://media2.giphy.com/media/"id"/200_s.gif
+// in the .on function use ajax call to get still image of "data-subject"
+// on image click have the ajax call get the data-animate file of "data-subject"
+// on next click have it switch back to the still
+		
 	  </script>
 		
 	</body>
