@@ -1,18 +1,5 @@
-//$(document).ready(function()
-//{
-
-$("#newButton").on("click", function(event) {
-          // prevent form from trying to submit/refresh the page
-        event.preventDefault();
-            var comment = $("#comment-input").val().trim();
-            console.log(comment);
-            var comment1 = $("<button>").text(comment);
-                comment1.addClass("setButtons", comment);
-                comment1.attr("data-subject",comment);
-            $("#pageButtons").append(comment1);
-    });
-
-
+$(document).ready(function(){
+ 
     $(document).on("click", ".setButtons", function() {
           // Grabbing and storing the data-subject property value from the button
         var subject = $(this).attr("data-subject");
@@ -49,6 +36,20 @@ $("#newButton").on("click", function(event) {
           }
         });
     });
+
+    $("#newButton").on("click", function(event) {
+          // prevent form from trying to submit/refresh the page
+        event.preventDefault();
+
+            var comment = $("#comment-input").val().trim();
+            console.log(comment);
+            var comment1 = $("<button>").text(comment);
+                comment1.addClass("setButtons", comment);
+                comment1.attr("data-subject",comment);
+            $("#pageButtons").append(comment1);
+    });
+});
+   
 // find the correct array in object.data [array]
 // in the correct object.data find the id ""
 // store the id ""
